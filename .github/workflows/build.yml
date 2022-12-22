@@ -1,0 +1,17 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Repository Checkout
+        uses: actions/checkout@main
+      - name: Build
+        run: |
+          echo "DATE=$(date +%Y%m%d)" >>$GITHUB_ENV
+          docker build --output manjaro-rfs-${{ env.DATE }}.tar.xz
