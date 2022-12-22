@@ -7,11 +7,11 @@ on:
 
 jobs:
   release:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Repository Checkout
         uses: actions/checkout@main
       - name: Build
         run: |
-          echo "DATE=$(date +%Y%m%d)" >>$GITHUB_ENV
-          docker build --output manjaro-rfs-${{ env.DATE }}.tar.xz
+          echo "DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
+          docker build --output manjaro-rfs-${{ env.DATE }}.tar.xz .
