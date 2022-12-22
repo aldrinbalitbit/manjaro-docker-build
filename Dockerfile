@@ -1,5 +1,7 @@
 FROM manjarolinux/base:latest
 
+COPY mirrorlist /etc/pacman.d/mirrorlist
+
 RUN pacman -Syyuu --noconfirm --needed \
     base-devel \
     shadow \
@@ -16,7 +18,7 @@ RUN pacman -Syyuu --noconfirm --needed \
     sudo && \
     rm -f /var/cache/pacman/pkg/*
 
-RUN git clone git://aur.archlinux.org/yay.git && \
+RUN git clone https://aur.archlinux.org/yay.git && \
     cd yay && \
     makepkg -si -Syyuu --asroot --noconfirm && \
     cd .. && \
