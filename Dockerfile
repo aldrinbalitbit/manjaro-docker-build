@@ -20,4 +20,6 @@ RUN pacman -Syyuu --noconfirm --needed \
 
 RUN git clone https://aur.archlinux.org/yay.git && \
     cd yay && \
-    sudo makepkg -si -Syyuu --noconfirm
+    sudo makepkg -si -Syyuu --noconfirm && \
+    cd .. && \
+    rm -f yay
