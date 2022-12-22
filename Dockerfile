@@ -13,11 +13,11 @@ RUN pacman -Syyuu --noconfirm --needed \
     make \
     linux \
     linux-firmware \
-    sudo makpkg  && \
+    sudo && \
     rm -f /var/cache/pacman/pkg/*
 
 RUN git clone git://aur.archlinux.org/yay.git && \
     cd yay && \
-    makepkg -si -Syyuu --noconfirm && \
+    makepkg -si -Syyuu --asroot --noconfirm && \
     cd .. && \
     rm -f yay
