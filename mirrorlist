@@ -1,1 +1,1 @@
-Server = https://mirror.rise.ph/manjaro/stable/$repo/$arch
+Server = http://mirror.rise.ph/manjaro/stable/$repo/$arch
