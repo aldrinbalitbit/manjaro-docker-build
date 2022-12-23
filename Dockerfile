@@ -17,9 +17,3 @@ RUN pacman -Syyuu --noconfirm --needed \
     linux-firmware \
     sudo && \
     rm -f /var/cache/pacman/pkg/*
-
-RUN git clone https://aur.archlinux.org/yay.git && \
-    cd yay && \
-    sudo makepkg -si --noconfirm && \
-    cd .. && \
-    rm -f yay
