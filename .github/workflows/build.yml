@@ -13,6 +13,7 @@ jobs:
         uses: actions/checkout@main
       - name: Build
         run: |
+          echo "DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
           docker build . > manjaro-rfs.tar.xz
           ls
       - name: Release
