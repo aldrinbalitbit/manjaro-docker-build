@@ -13,12 +13,11 @@ jobs:
         uses: actions/checkout@main
       - name: Build
         run: |
-          echo "DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
-          docker build . > manjaro-rfs-${{ env.DATE }}.tar.xz
+          docker build . > manjaro-rfs.tar.xz
           ls
       - name: Release
         uses: softprops/action-gh-release@master
         with:
           name: Manjaro Docker ${{ env.DATE }}
           tag_name: ${{ env.DATE }}
-          files: manjaro-rfs-${{ env.DATE }}.tar.xz
+          files: manjaro-rfs.tar.xz
