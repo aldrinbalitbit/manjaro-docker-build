@@ -14,7 +14,7 @@ jobs:
       - name: Build
         run: |
           echo "DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
-          docker build --output manjaro-rfs-${{ env.DATE }}.tar.xz .
+          docker build . > manjaro-rfs-${{ env.DATE }}.tar.xz
           ls
       - name: Release
         uses: softprops/action-gh-release@master
