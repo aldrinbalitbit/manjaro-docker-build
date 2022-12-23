@@ -16,7 +16,7 @@ jobs:
           echo "DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
           docker build --tag manjaro-rfs .
           docker save manjaro-rfs -o manjaro-rfs.tar
-          gzip manjaro-rfs.tar
+          xz -v manjaro-rfs.tar
       - name: Release
         uses: softprops/action-gh-release@master
         with:
