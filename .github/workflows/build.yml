@@ -16,7 +16,8 @@ jobs:
           echo "DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
           docker build --tag manjaro-rfs .
           cid=$(docker create manjaro-rfs)
-          docker export $cid | tar -cJf manjaro-rfs.tar.xz
+          docker export $cid > manjaro-rfs.tar
+          xz -v manjaro-rfs.tar
       - name: Release
         uses: softprops/action-gh-release@master
         with:
